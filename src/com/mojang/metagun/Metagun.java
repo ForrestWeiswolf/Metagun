@@ -4,6 +4,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -60,7 +61,7 @@ public class Metagun extends Applet implements Runnable, KeyListener {
         if (started) return;
         if (splashImage==null) {
             try {
-                splashImage = ImageIO.read(Metagun.class.getResource("/mojang.png"));
+                splashImage = ImageIO.read(new FileInputStream("res/mojang.png"));
                 splashImage = splashImage.getScaledInstance(640, 480, Image.SCALE_AREA_AVERAGING);
             } catch (IOException e) {
             }

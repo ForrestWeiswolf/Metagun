@@ -2,6 +2,7 @@ package com.mojang.metagun;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 
 import javax.imageio.ImageIO;
 
@@ -19,7 +20,7 @@ public class Art {
 
     public static BufferedImage load(String name) {
         try {
-            BufferedImage org = ImageIO.read(Art.class.getResource(name));
+            BufferedImage org = ImageIO.read(new FileInputStream("res/" + name));
             BufferedImage res = new BufferedImage(org.getWidth(), org.getHeight(), BufferedImage.TYPE_INT_ARGB);
             Graphics g = res.getGraphics();
             g.drawImage(org, 0, 0, null, null);
